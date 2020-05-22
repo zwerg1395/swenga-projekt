@@ -9,7 +9,7 @@ class HomePageController {
 
     @RequestMapping("", method = [RequestMethod.GET])
     fun homePage(): String {
-        return "redirect:listEmployees"
+        return "redirect:anonymous"
     }
 
 }

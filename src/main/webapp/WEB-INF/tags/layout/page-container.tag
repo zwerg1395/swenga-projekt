@@ -32,12 +32,16 @@
         <li class="nav-item ${employeesMenuActive} dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        Employee
+        DropDown Menu
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="/listEmployees">List Employee</a>
         <sec:authorize access="hasAuthority('ROLE_ADMIN')">
             <a class="dropdown-item" href="/editEmployee">Create Employee</a>
+        </sec:authorize>
+        <a class="dropdown-item" href="/listCloudUsers">List CloudUser</a>
+        <sec:authorize access="hasAuthority('ROLE_ADMIN')">
+            <a class="dropdown-item" href="/editCloudUser">Create CloudUser</a>
         </sec:authorize>
         </div>
         </li>

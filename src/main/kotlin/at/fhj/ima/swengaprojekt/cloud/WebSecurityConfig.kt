@@ -17,6 +17,9 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
     override fun configure(http: HttpSecurity) {
         http
                 .authorizeRequests()
+
+                .antMatchers("/").anonymous()
+                .antMatchers("/createCloudUser").anonymous()
                 // you anonymous urls here
                 .antMatchers("/anonymous").permitAll()
                 //.antMatchers("/anonymous1").permitAll()
