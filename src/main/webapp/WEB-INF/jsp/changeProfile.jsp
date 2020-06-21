@@ -9,7 +9,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="file" tagdir="/WEB-INF/tags/file" %>
 
-<layout:page-container title="Profile Settings" activePage="changeProfile">
+<layout:page-container-cloud title="Profile Settings" activePage="changeProfile">
 
 
 
@@ -100,4 +100,4 @@
         password.onkeyup = validate;
         confirm_password.onkeyup = validate;
     </script>
-</layout:page-container>
+</layout:page-container-cloud>

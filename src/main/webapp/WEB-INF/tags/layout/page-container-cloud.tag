@@ -26,9 +26,6 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-        <c:if test="${activePage == 'listEmployees' or activePage == 'editEmployee'}">
-            <c:set var="employeesMenuActive">active</c:set>
-        </c:if>
         <li class="nav-item ${employeesMenuActive} dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
@@ -37,6 +34,9 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="/cloud?username=${currentUser.username}">Cloud</a>
         <a class="dropdown-item" href="/changeProfile?username=${currentUser.username}">Change Profile</a>
+            <sec:authorize access="hasAuthority('ROLE_ADMIN')">
+                    <a class="dropdown-item" href="/getLog" target="_blank">Log</a>
+            </sec:authorize>
         </div>
         </li>
         </ul>
@@ -75,10 +75,6 @@
 
         </div>
         <bootstrap:bootstrap-js/>
-            <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
-            <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
         <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script type="text/javascript"
