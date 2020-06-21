@@ -16,40 +16,6 @@
         </head>
         <body>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-        <a class="navbar-brand" href="/">Cloud Services</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-        <c:if test="${activePage == 'listEmployees' or activePage == 'editEmployee'}">
-            <c:set var="employeesMenuActive">active</c:set>
-        </c:if>
-        <li class="nav-item ${employeesMenuActive} dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        Navigate
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/cloud?username=${currentUser.username}">Cloud</a>
-            <a class="dropdown-item" href="/changeProfile?username=${currentUser.username}">Change Profile</a>
-        </div>
-        </li>
-        </ul>
-        Logged in as ${currentUser.username} |
-        <form:form method="post" action="/logout">
-            <button class="btn btn-link" type="submit">Log Out</button>
-        </form:form>
-        </div>
-        </div>
-        </nav>
-
-        <div class="container" role="main">
-
         <!-- Messages ----------------------------------------------------------- -->
 
         <!-- Error message ----------------------------------------------------------- -->
@@ -73,7 +39,6 @@
         <!-- Messages ----------------------------------------------------------- -->
         <jsp:doBody/>
 
-        </div>
         <bootstrap:bootstrap-js/>
         <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>

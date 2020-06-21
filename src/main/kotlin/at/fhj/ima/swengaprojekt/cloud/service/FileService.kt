@@ -44,4 +44,9 @@ class FileService(val fileRepository: FileRepository) {
         fileRepository.delete(findById(id))
     }
 
+    fun rename(file:File, name:String): File {
+        file.originalFileName = name
+        return fileRepository.save(file)
+    }
+
 }

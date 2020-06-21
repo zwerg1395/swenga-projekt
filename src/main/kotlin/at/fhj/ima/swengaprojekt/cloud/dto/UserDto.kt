@@ -3,13 +3,7 @@ package at.fhj.ima.swengaprojekt.cloud.entity
 import java.io.Serializable
 import javax.persistence.*
 
-enum class UserRole {
-    ROLE_USER,
-    ROLE_ADMIN
-}
-
-@Entity
-class User(
+class UserDto(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Int? = null,
@@ -19,7 +13,6 @@ class User(
     var passwordOld: String? = null,
     @Enumerated(EnumType.STRING)
     var role: UserRole? = null,
-    @ManyToMany(fetch = FetchType.EAGER)
     var files: List<File>? = null,
     @ManyToOne
     var subscription: Subscription = Subscription()

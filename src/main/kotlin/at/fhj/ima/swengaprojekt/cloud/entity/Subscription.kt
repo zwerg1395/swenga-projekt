@@ -8,20 +8,21 @@ import javax.persistence.Id
 
 
 @Entity
-class Department(
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Int? = null,
-        var name: String? = null
-) : Comparable<Department>, Serializable {
-    override fun compareTo(other: Department): Int {
+class Subscription(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Int? = null,
+    var name: String? = null,
+    var fileLimit: Long = 0
+) : Comparable<Subscription>, Serializable {
+    override fun compareTo(other: Subscription): Int {
         return compareValues(id, other.id)
     }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
-        other as Department
+        other as Subscription
         if (id != other.id) return false
         return true
     }

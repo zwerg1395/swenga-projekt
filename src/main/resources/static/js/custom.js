@@ -29,6 +29,7 @@ $(function () {
             done: function (e, data) {
                 var result = data.response().result;
                 var rowIndex = $filescontainer.find('tr').length;
+                //window.location = "/refresh";
                 $filescontainer.append($('<tr>' +
                     '<td>' +
                     '<input type="hidden" name="' + $path + '[' + rowIndex + '].id" value="' + result.id + '">' +
@@ -38,10 +39,12 @@ $(function () {
                     '<a href="/file/' + result.id + '" class="btn btn-link">' + result.originalFileName + '</a>' +
                     '</td>' +
                     '<td>' +
-                    '<button type="button" class="btn btn-danger deletefile">Delete</button>' +
+                    '<a href="/file/rename/' + result.id + '?fileName=test123" class="btn btn-danger">Rename</a>' +
+                    '<a href="/file/delete/' + result.id + '" class="btn btn-danger">Delete</a>' +
                     '</td>' +
                     '</tr>'));
                 initFileDelete();
+                document.getElementById("mainForm").submit();
             }
         });
     })

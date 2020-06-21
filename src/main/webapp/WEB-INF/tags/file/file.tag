@@ -8,8 +8,12 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@taglib prefix="file" tagdir="/WEB-INF/tags/file" %>
 
+<input type="file" multiple="true" class="customfileupload form-control"
+       data-path="${path}" data-csrftokenname="${_csrf.parameterName}" data-csrftoken="${_csrf.token}"/>
+<form:errors path="${path}" cssClass="invalid-feedback d-block"/>
+
 <table role="presentation" class="table table-striped">
-    <tbody class="filescontainer"></tbody>
+    <tbody class="filescontainer" id="tbodyList">
     <c:forEach var="file" items="${value}" varStatus="status">
         <tr>
             <td>
@@ -20,12 +24,21 @@
                 <a href="/file/${file.id}" class="btn btn-link">${file.originalFileName}</a>
             </td>
             <td>
-                <button type="button" class="btn btn-danger deletefile">Delete</button>
+                    <input type="hidden" name="id" value="<c:out value="${file.id}"/>">
+
+                <input id="renameInput" type="text" class="form-control" value="${file.originalFileName}" onchange="renameFun(this.value, ${file.id})"/>
+                <a href="/file/rename/${file.id}?fileName=${linkExtension}" class="btn btn-danger" id="renameLink${file.id}">Rename</a>
+                <a href="/file/delete/${file.id}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
     </c:forEach>
+    </tbody>
 </table>
 
-<input type="file" multiple="true" class="customfileupload form-control"
-       data-path="${path}" data-csrftokenname="${_csrf.parameterName}" data-csrftoken="${_csrf.token}"/>
-<form:errors path="${path}" cssClass="invalid-feedback d-block"/>
+
+<script>
+    function renameFun(val, id){
+        var link = "/file/rename/" + id + "?fileName=" + val;
+        document.getElementById("renameLink" + id).setAttribute("href", link);
+    }
+</script>

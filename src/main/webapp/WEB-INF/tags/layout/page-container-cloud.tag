@@ -35,8 +35,8 @@
         Navigate
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/cloud?username=${currentUser.username}">Cloud</a>
-            <a class="dropdown-item" href="/changeProfile?username=${currentUser.username}">Change Profile</a>
+        <a class="dropdown-item" href="/cloud?username=${currentUser.username}">Cloud</a>
+        <a class="dropdown-item" href="/changeProfile?username=${currentUser.username}">Change Profile</a>
         </div>
         </li>
         </ul>
@@ -75,6 +75,10 @@
 
         </div>
         <bootstrap:bootstrap-js/>
+            <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+            <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
         <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
         <script type="text/javascript"
